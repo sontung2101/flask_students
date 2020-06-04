@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<div class="container mt-5">
+<table class="table table-bordered">
+  <tr>
+    <th class="text-center">No.</th>
+    <th class="text-center">Student Number</th >
+    <th class="text-center">Name</th>
+    <th class="text-center">image</th>
+    <th class="text-center">option</th>
+  </tr>
+  {% for st in studentList %}
+    <tr>
+      <td class="text-center">{{ loop.index }}</td>
+      <td class="text-center">{{ st.studentNo }}</td>
+      <td class="text-center">{{ st.name }}</td>
+      <td class="text-center">
+        <img src="/static/{{st.studentNo}}.jpg?t={{time}}" alt="" style="max-height: 100px;">
+      </td>
+      <td class="text-center">
+        <a  href='/edit/{{st.id}}' class="btn btn-sm btn-primary">Edit</a>
+        <a href='/delete/{{st.id}}' class="btn btn-sm btn-danger">Delete</a>
+      </td>
+    </tr>
+  {% endfor %}
+</table>
+<a href='/create_student' class="btn btn-primary">
+  Add new student
+</a>
+</div>
